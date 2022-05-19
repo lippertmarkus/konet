@@ -9,13 +9,15 @@
     <ToolCommandName>konet</ToolCommandName>
     <PackageOutputPath>./nupkg</PackageOutputPath>
     <PackageId>konet</PackageId>
-    <Version>0.0.1</Version>
+    <Version>0.0.3</Version>
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
-    <PackageIconUrl>https://github.com/lippertmarkus/konet/raw/main/images/logo.png</PackageIconUrl>
+    <PackageIcon>images\logo.png</PackageIcon>
+    <PackageReadmeFile>docs\README.md</PackageReadmeFile>
     <Authors>lippertmarkus</Authors>
     <PackageProjectUrl>https://github.com/lippertmarkus/konet</PackageProjectUrl>
     <RepositoryType>git</RepositoryType>
-    <RepositoryUrl>https://github.com/lippertmarkus/konet.crane.git</RepositoryUrl>
+    <RepositoryBranch>main</RepositoryBranch>
+    <RepositoryUrl>https://github.com/lippertmarkus/konet.git</RepositoryUrl>
     <Description>Build multi-arch container images for .NET applications</Description>
     <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
     <PackageReleaseNotes>Initial release</PackageReleaseNotes>
@@ -23,6 +25,9 @@
   </PropertyGroup>
   
   <ItemGroup>
+    <None Include="images\logo.png" Pack="true" PackagePath="images\"/>
+    <None Include="README.md" Pack="true" PackagePath="docs\"/>
+    
     <PackageReference Include="konet.crane" Version="0.0.1" />
     <PackageReference Include="Microsoft.Extensions.Logging" Version="6.0.0" />
     <PackageReference Include="Microsoft.Extensions.Logging.Console" Version="6.0.0" />

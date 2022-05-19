@@ -13,8 +13,8 @@ internal class LoginCommand : Command
         _logger = logger;
 
         var registryArg = new Argument<string>("registry", "Registry server");
-        var userParam = new Option<string>("--username", "Username") {IsRequired = true};
-        var passwordParam = new Option<string>("--password", "Password") {IsRequired = true};
+        var userParam = new Option<string>(new[] {"--username", "-u"}, "Username") {IsRequired = true};
+        var passwordParam = new Option<string>(new[] {"--password", "-p"}, "Password") {IsRequired = true};
 
         Add(registryArg);
         Add(userParam);

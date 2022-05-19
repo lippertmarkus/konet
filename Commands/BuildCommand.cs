@@ -23,20 +23,22 @@ internal class BuildCommand : Command
         {
             Arity = ArgumentArity.ZeroOrOne
         };
-        var platforms = new Option<string[]>("--platform", "With platforms to include in the multiarch image");
+        var platformsString = new Option<string>(new[] {"--platform", "-p"}, "Comma-separated list of platforms to include in the multiarch image, e.g. linux/amd64,windows/amd64:1809");
         var tag = new Option<string>( new[] {"--tag", "-t"}, "Tag") {IsRequired = true};
 
         Add(project);
-        Add(platforms);
+        Add(platformsString);
         Add(tag);
 
-        this.SetHandler<string, string[], string>(Build, project, platforms, tag);
+        this.SetHandler<string, string?, string>(Build, project, platformsString, tag);
     }
 
-    private async Task Build(string project, string[] platforms, string tag)
+    private async Task Build(string project, string? platformsString, string tag)
     {
         try
         {
+            var platforms = (platformsString ?? "").Split(',', StringSplitOptions.RemoveEmptyEntries);
+            
             if (string.IsNullOrWhiteSpace(project))
                 project = Directory.GetCurrentDirectory();
 
