@@ -59,4 +59,4 @@ You can limit the platforms by adding `-p windows/amd64:ltsc2022,linux/amd64` to
 
 ## Acknowledgements
 
-This work is heavily inspired by [`ko`](https://github.com/google/ko) and uses [`crane`](`https://github.com/google/go-containerregistry/tree/main/cmd/crane`) under the hood.
+This work is heavily inspired by [`ko`](https://github.com/google/ko) and uses [`crane`](https://github.com/google/go-containerregistry/tree/main/cmd/crane) under the hood.
