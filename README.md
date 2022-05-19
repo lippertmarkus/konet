@@ -1,6 +1,7 @@
 ﻿# `konet`: Easy .NET Containers
 
 [![Nuget](https://img.shields.io/nuget/v/konet)](https://www.nuget.org/packages/konet)
+[![Build](https://github.com/lippertmarkus/konet/actions/workflows/ci.yml/badge.svg)](https://github.com/lippertmarkus/konet/actions/workflows/ci.yml)
 
 ![Alt text](https://raw.githubusercontent.com/lippertmarkus/konet/main/images/logo.svg)
 
