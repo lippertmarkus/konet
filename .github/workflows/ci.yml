@@ -1,0 +1,38 @@
+﻿name: Continuous integration
+on: [push, pull_request]
+
+jobs:
+  ci:
+    runs-on: ubuntu-latest
+    services:
+      registry:
+        image: registry
+        ports:
+          - 5000:5000
+        env:
+          REGISTRY_VALIDATION_DISABLED: true
+
+    steps:
+      - uses: actions/checkout@v3
+        
+      - name: build-install
+        run: |
+          dotnet pack
+          
+      - name: integration-test
+        run: |
+          dotnet tool install --global --add-source ./nupkg konet
+          
+          dotnet new console -n myconsoleapp
+          cd myconsoleapp/
+          
+          konet build -t localhost:5000/testuser/myconsoleapp:1.0
+          
+          docker run --name test --pull always localhost:5000/testuser/myconsoleapp:1.0
+          
+          logs=$(docker logs test)
+          if [[ $logs == *"World!"* ]]; then
+            exit 0
+          else
+            exit 1
+          fi
