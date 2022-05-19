@@ -1,0 +1,6 @@
+﻿*.DotSettings*
+bin
+obj
+.idea
+*.nupkg
+nupkg
