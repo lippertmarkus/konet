@@ -25,8 +25,8 @@
   </PropertyGroup>
   
   <ItemGroup>
-    <None Include="images\logo.png" Pack="true" PackagePath="images\"/>
-    <None Include="README.md" Pack="true" PackagePath="docs\"/>
+    <None Include="images/logo.png" Pack="true" PackagePath="images/" />
+    <None Include="README.md" Pack="true" PackagePath="docs/" />
     
     <PackageReference Include="konet.crane" Version="0.0.1" />
     <PackageReference Include="Microsoft.Extensions.Logging" Version="6.0.0" />
