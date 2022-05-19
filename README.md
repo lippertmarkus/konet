@@ -6,9 +6,9 @@
 
 `konet` is an easy to use and fast container image builder for .NET applications.
 
-It creates binaries for different architectures by running `dotnet build` and pushes only those binaries as new layers to a container image registry.
+It creates binaries for different platforms and architectures by running `dotnet build` and pushes only those binaries as new layers to a container image registry with a reference to a .NET base image.
 
-`konet` is fast as it builds binaries locally and doesn't require `docker` to be installed or base images to be pulled. It's easy to use and doesn't require writing a `Dockerfile`.
+`konet` is fast as it builds binaries locally and doesn't require `docker` to be installed or base images to be pulled. It's easy to use, doesn't require writing a `Dockerfile` and produces minimal images.
 
 `konet` is heavily inspired by [`ko`](https://github.com/google/ko).
 
