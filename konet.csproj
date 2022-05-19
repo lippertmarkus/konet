@@ -9,7 +9,7 @@
     <ToolCommandName>konet</ToolCommandName>
     <PackageOutputPath>./nupkg</PackageOutputPath>
     <PackageId>konet</PackageId>
-    <Version>0.0.4</Version>
+    <Version>0.0.5</Version>
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
     <PackageIcon>images/logo.png</PackageIcon>
     <PackageReadmeFile>docs/README.md</PackageReadmeFile>

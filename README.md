@@ -41,11 +41,11 @@ dotnet tool update --global konet
 Example:
 
 ```bash
-dotnet new webapi -n mywebapi
-cd mywebapi/
-konet build -t lippertmarkus/test-webapi:1.0
+dotnet new console -n myconsoleapp
+cd myconsoleapp/
+konet build -t lippertmarkus/test-console:1.0
 # ...
-# Successfully pushed to lippertmarkus/test-webapi:1.0
+# Successfully pushed to lippertmarkus/test-console:1.0
 ```
 
 The result is a manifest list at the tag specified in `-t`, referencing images for different architectures with the compiled binary as the entrypoint.
@@ -54,7 +54,7 @@ The result is a manifest list at the tag specified in `-t`, referencing images f
 
 #### Target Platforms
 
-Per default `konet` creates images for all platforms .NET supports and for which there is an official base image available. Those include `windows/amd64:1809, windows/amd64:1903, windows/amd64:1909, windows/amd64:2004, windows/amd64:20H2, windows/amd64:ltsc2022, linux/amd64, linux/arm/v7, linux/arm64/v8`.
+Per default `konet` creates images for all platforms .NET supports and for which there is an official base image available. Those include `linux/amd64,linux/arm/v7,linux/arm64/v8,windows/amd64:1809,windows/amd64:1903,windows/amd64:1909,windows/amd64:2004,windows/amd64:20H2,windows/amd64:ltsc2022`.
 
 You can limit the platforms by adding `-p windows/amd64:ltsc2022,linux/amd64` to `konet build`.
 

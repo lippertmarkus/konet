@@ -1,4 +1,5 @@
 ﻿using System.Diagnostics;
+using System.Text;
 
 namespace konet.Package.Builder;
 
@@ -29,17 +30,18 @@ public static class DotNet
                 RedirectStandardError = true
             }
         };
+        var stdOut = new StringBuilder();
+        var stdErr = new StringBuilder();
+        p.ErrorDataReceived += (_, dataArgs) => { stdErr.AppendLine(dataArgs.Data ?? string.Empty); };
+        p.OutputDataReceived += (_, dataArgs) => { stdOut.AppendLine(dataArgs.Data ?? string.Empty); };
 
         p.Start();
+        p.BeginErrorReadLine();
+        p.BeginOutputReadLine();
         await p.WaitForExitAsync();
         
         if (p.ExitCode != 0)
-        {
-            var stdOut = await p.StandardOutput.ReadToEndAsync();
-            var stdErr = await p.StandardError.ReadToEndAsync();
-            
             throw new DotNetException($"DotNet build failed: \n{stdOut}\n\n{stdErr}");
-        }
     }
     
     public static string DetermineBinaryName(string project)
